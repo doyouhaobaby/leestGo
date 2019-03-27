@@ -1,0 +1,75 @@
+{
+	"info": {
+		"name": "goleest",
+		"_postman_id": "51c1965e-5a94-4365-b449-c32f23092260",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "tags",
+			"description": "",
+			"item": [
+				{
+					"name": "标签列表",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{host}}/api/v1/tags",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tags"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "标签新增",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{host}}/api/v1/tags?name=1&state=1&created_by=test",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tags"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "1",
+									"equals": true
+								},
+								{
+									"key": "state",
+									"value": "1",
+									"equals": true
+								},
+								{
+									"key": "created_by",
+									"value": "test",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

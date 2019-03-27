@@ -1,0 +1,1 @@
+INSERT INTO `auth` (`id`, `username`, `password`) VALUES (null, 'test', 'test123456');
