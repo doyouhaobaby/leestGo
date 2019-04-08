@@ -8,7 +8,7 @@ import (
 	"leest/infra/setting"
 )
 
-var db *gorm.DB
+var Db *gorm.DB
 
 type Entity struct {
 	ID int `gorm:"primary_key" json:"id"`
@@ -23,6 +23,7 @@ func init() {
 	)
 
 	sec, err := setting.Cfg.GetSection("database")
+	
 	if err != nil {
 		log.Fatal(2, "Fail to get section `database`: %v", err)
 	}
@@ -33,7 +34,7 @@ func init() {
 	password = sec.Key("PASSWORD").String()
 	host = sec.Key("HOST").String()
 
-	db, err = gorm.Open(
+	Db, err = gorm.Open(
 		dbType,
 		fmt.Sprintf(
 			"%s:%s@tcp(%s)/%s?charset=utf8&parseTime=True&loc=Local",
@@ -46,11 +47,11 @@ func init() {
 		log.Println(err)
 	}
 
-	db.SingularTable(true)
-	db.DB().SetMaxIdleConns(10)
-	db.DB().SetMaxOpenConns(100)
+	Db.SingularTable(true)
+	Db.DB().SetMaxIdleConns(10)
+	Db.DB().SetMaxOpenConns(100)
 }
 
 func CloseDB() {
-	defer db.Close()
+	defer Db.Close()
 }

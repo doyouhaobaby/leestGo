@@ -4,7 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/Unknwon/com"
 	"leest/infra/e"
-	"leest/domain/entity"
+	"leest/domain/entity/tag"
 	"leest/infra/util"
 	"leest/infra/setting"
 )
@@ -27,8 +27,8 @@ func Gets(c *gin.Context) map[string]interface{} {
 
 	code := e.SUCCESS
 
-	data["lists"] = entity.GetTags(util.GetPage(c), setting.PageSize, maps)
-	data["total"] = entity.GetTagTotal(maps)
+	data["lists"] = tag.Gets(util.GetPage(c), setting.PageSize, maps)
+	data["total"] = tag.GetTotal(maps)
 
 	return map[string]interface{}{
 		"code": code,
