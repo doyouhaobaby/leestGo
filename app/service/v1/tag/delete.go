@@ -1,10 +1,11 @@
 package tag
 
 import (
+	"net/http"
+	"leest/domain/service/tag"
 	"github.com/gin-gonic/gin"
-	"leest/app/service/v1/tag"
 )
 
 func Delete(c *gin.Context) {
-	tag.Delete(c)
+	c.JSON(http.StatusOK, tag.Destroy(c))
 }
