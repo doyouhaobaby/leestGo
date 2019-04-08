@@ -1,7 +1,9 @@
 package tag
 
 import (
-	"leest/domain/entity"
+    "time"
+    "github.com/jinzhu/gorm"
+    "leest/domain/entity"
 )
 
 type Tag struct {
@@ -14,3 +16,15 @@ type Tag struct {
 }
 
 var db = entity.Db
+
+func (tag *Tag) BeforeCreate(scope *gorm.Scope) error {
+    scope.SetColumn("CreatedOn", time.Now().Unix())
+
+    return nil
+}
+
+func (tag *Tag) BeforeUpdate(scope *gorm.Scope) error {
+    scope.SetColumn("ModifiedOn", time.Now().Unix())
+
+    return nil
+}
