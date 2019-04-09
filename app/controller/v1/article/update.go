@@ -1,10 +1,10 @@
-package tag
+package article
 
 import (
 	"github.com/gin-gonic/gin"
-	_ "leest/app/service/v1/tag"
+	"leest/app/service/v1/article"
 )
 
 func Update(c *gin.Context) {
-	//tag.Gets(c)
+	article.Gets(c)
 }

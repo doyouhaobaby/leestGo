@@ -1,10 +1,11 @@
 package article
 
 import (
+	"net/http"
+	"leest/infra/repository/article"
 	"github.com/gin-gonic/gin"
-    "leest/app/service/v1/article"
 )
 
 func Gets(c *gin.Context) {
-	article.Gets(c)
+	c.JSON(http.StatusOK, article.Lists(c))
 }

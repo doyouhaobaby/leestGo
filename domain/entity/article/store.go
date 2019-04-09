@@ -1,6 +1,6 @@
 package article 
 
-func Add(data map[string]interface{}) bool {
+func Store(data map[string]interface{}) bool {
 	db.Create(&Article {
 		TagID: data["tag_id"].(int),
 		Title: data["title"].(string),
